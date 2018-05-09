@@ -1,3 +1,5 @@
 serious content 
 
 even more seriouserebb kontent.
+
+ez a rész a feladatban a reset HEAD file-nál elég zavaros
