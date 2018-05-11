@@ -22,15 +22,13 @@ public class DrawPyramid {
         int triangleRows = scanner.nextInt();
 
         for (int row = 0; row < triangleRows+1; row++) {
-            for (int col = 0; col < ((row*2)-1); col++) {
-                for (int space = triangleRows; space < 0; space-- ) {
-                    System.out.print(" ");
-                }
-                System.out.print("*");
+            for (int spaces = triangleRows; spaces > row; spaces-- ) {
+                System.out.print(" ");
             }
+                for (int col = 0; col < ((row*2)-1); col++) {
+                    System.out.print("*");
+                }
             System.out.print("\n");
         }
-
     }
-
 }
