@@ -1,4 +1,5 @@
 // Loads the scanner to the file
+
 import java.util.Scanner;
 
 public class tester {
@@ -9,14 +10,22 @@ public class tester {
 
         System.out.println("How tall triangle do you wish for?");
         int triangleRows = scanner.nextInt();
+        int spaceCounter = 0;
 
-        for (int row = 0; row < triangleRows+1; row++) {
-            for (int col = triangleRows; col > row; col = col-1) {
+        for (int row = ((triangleRows+1)/2); row > 0; row--) {
+
+            for (int spaces = 0; spaces < spaceCounter ; spaces++ ) {
+                System.out.print(".");
+            }
+            for (int col = row; col > 0; col--) {
                 System.out.print("*");
             }
             System.out.print("\n");
+            spaceCounter++;
+
         }
 
     }
 }
+
 
