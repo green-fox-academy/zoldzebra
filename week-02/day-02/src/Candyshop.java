@@ -17,4 +17,11 @@ public class Candyshop{
     System.out.println(sweets(arrayList));
     // Expected output: "Cupcake", "Croissant", "Brownie", "Ice cream"
   }
+
+  public static ArrayList sweets(ArrayList arrayList){
+    arrayList.set(1, "Croissant");
+    arrayList.set(3, "Ice cream");
+    return arrayList;
+  }
+
 }
