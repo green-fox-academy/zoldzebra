@@ -25,7 +25,7 @@ public class DrawDiamond {
 
         for (int row = 0; row < ((triangleRows+1)/2); row++) {
             for (int spaces = triangleRows; spaces > row; spaces-- ) {
-                System.out.print(" ");
+                System.out.print(".");
             }
             for (int col = 0; col < ((row*2)-1); col++) {
                 System.out.print("*");
@@ -35,7 +35,25 @@ public class DrawDiamond {
 
         int spaceCounter = 0;
 
-        for (int row = ((triangleRows+1)/2); row > 0; row--) {
+        for (int row = 0; row < ((triangleRows+1)/2); row++) {
+
+
+
+            for (int spaces = spaceCounter; spaces == row; spaces++) {
+                System.out.print(".");
+            }
+
+            spaceCounter += 1;
+
+            for (int col = row; col > 0; col--) {
+                System.out.print("*");
+            }
+            System.out.print("\n");
+
+        }
+
+
+        /**for (int row = ((triangleRows+1)/2); row > 0; row--) {
 
             for (int spaces = 0; spaces < spaceCounter ; spaces++ ) {
                 System.out.print(".");
@@ -47,6 +65,8 @@ public class DrawDiamond {
             spaceCounter++;
 
         }
+        **/
+
 
     }
 }

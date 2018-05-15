@@ -25,10 +25,11 @@ public class DrawPyramid {
             for (int spaces = triangleRows; spaces > row; spaces-- ) {
                 System.out.print(" ");
             }
-                for (int col = 0; col < ((row*2)-1); col++) {
-                    System.out.print("*");
-                }
+            for (int col = 0; col < ((row*2)-1); col++) {
+                System.out.print("*");
+            }
             System.out.print("\n");
         }
+
     }
 }
