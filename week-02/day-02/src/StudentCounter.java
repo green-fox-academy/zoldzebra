@@ -3,6 +3,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.*;
 
+import static oracle.jrockit.jfr.events.Bits.doubleValue;
+
 public class StudentCounter{
   public static void main(String... args){
     ArrayList<Map<String, Object>> map = new ArrayList<Map<String, Object>>();
@@ -51,14 +53,19 @@ public class StudentCounter{
 
     //System.out.println(map.get(0).get("candies"));
     int candies = 0;
-    double sumOfAges = 0;
+    Double sumOfAges = 0.0;
     for (int i = 0; i < map.size(); i++) {
       candies = (int) map.get(i).get("candies");
       if (candies > 4) {
         System.out.println(map.get(i).get("name"));
-      } else if (candies < 5) {
+      }
+    }
+      for (int i = 0; i < map.size(); i++) {
+        candies = (int) map.get(i).get("candies");
+        if (candies < 5) {
           System.out.println(map.get(i).get("age"));
-          sumOfAges += (double) map.get(i).get("age"); // whats the problem with this casting?
+
+          sumOfAges += Double.valueOf(map.get(i).get("age").toString()); // whats the problem with this casting?
         }
       }
     System.out.println("Sum of age of people who have less than 5 candies is " + sumOfAges);
