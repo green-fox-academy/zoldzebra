@@ -43,7 +43,8 @@ public class Calculator {
     b = Double.valueOf(bString);
     // checking the operator and feeding back the input calculation
     String operator = String.valueOf(inputs.charAt(0));
-    System.out.println("Calculating " + a + " " + operator + " " + b + " =");
+    System.out.println("Calculatingpwd" +
+            " " + a + " " + operator + " " + b + " =");
     // calculating
     double calculation = 0;
     if (operator.equals("+")) {
