@@ -8,7 +8,7 @@ public class LinePlayQuarters {
   public static void mainDraw(Graphics graphics) {
 
     int noOfInnerLines = 10;
-    int divisors = 1;
+    int divisors = 4;
     int diffOfInnerLines = HEIGHT / divisors / noOfInnerLines;
     int startPos1 = 0;
     int startPos2 = 0;

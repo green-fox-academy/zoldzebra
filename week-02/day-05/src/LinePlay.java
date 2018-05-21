@@ -9,7 +9,7 @@ public class LinePlay {
 
     int[] starting = {0,0};
     int[] ending = {0,HEIGHT};
-    int numberOfLines = 15;
+    int numberOfLines = 35;
 
     for (int i = 0; i < numberOfLines ; i++) {
       starting[1] += WIDTH/numberOfLines;
