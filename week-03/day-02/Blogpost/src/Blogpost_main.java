@@ -24,5 +24,5 @@ public class Blogpost_main {
     System.out.println(post2);
 
   }
-  
+
 }
