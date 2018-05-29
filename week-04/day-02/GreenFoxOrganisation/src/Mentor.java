@@ -1,4 +1,3 @@
-
 public class Mentor extends Person {
 
   String level;
