@@ -7,5 +7,4 @@ public class Tree extends Plant {
     this.waterMinimum = 10;
     this.absorbLevel = 0.4;
   }
-
 }

@@ -7,5 +7,4 @@ public class Flower extends Plant  {
     this.waterMinimum = 5;
     this.absorbLevel = 0.75;
   }
-
 }

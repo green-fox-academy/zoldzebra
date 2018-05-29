@@ -6,8 +6,8 @@ public class Cohort {
   ArrayList<Student> students;
   ArrayList<Mentor> mentors;
 
-  int studentCounter = 0;
-  int mentorCounter = 0;
+  public int studentCounter = 0;
+  public int mentorCounter = 0;
 
   public Cohort(String name){
     this.name = name;

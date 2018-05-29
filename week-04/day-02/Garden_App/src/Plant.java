@@ -1,9 +1,9 @@
 public class Plant {
 
-  protected int waterAmount;
+  protected double waterAmount;
   protected String color;
-  protected static String species;
-  protected static int waterMinimum;
+  protected String species;
+  protected int waterMinimum;
   protected static double absorbLevel;
 
   public void needsWater(){
@@ -15,9 +15,6 @@ public class Plant {
   }
 
   public void watering(int watering){
-
+    this.waterAmount += this.absorbLevel * watering;
   }
-
-
-
 }
