@@ -6,23 +6,18 @@ public class Cohort {
   ArrayList<Student> students;
   ArrayList<Mentor> mentors;
 
-  public int studentCounter = 0;
-  public int mentorCounter = 0;
-
   public Cohort(String name){
     this.name = name;
-    this.students = null;
-    this.mentors = null;
+    this.students = new ArrayList<Student>();
+    this.mentors = new ArrayList<Mentor>();
   }
 
   public void addStudent(Student student){
-    students.add(studentCounter, student);
-    studentCounter++;
+    students.add(student);
   }
 
   public void addMentor(Mentor mentor) {
-    mentors.add(mentorCounter, mentor);
-    mentorCounter++;
+    mentors.add(mentor);
   }
 
   public void info(){
