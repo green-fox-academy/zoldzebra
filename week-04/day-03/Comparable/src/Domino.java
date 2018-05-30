@@ -18,6 +18,7 @@ public class Domino implements Comparable{
 
   @Override
   public int compareTo(Object o) {
+    // OK, this works, but what is the relation between this and Collections.sort() in the main?
     Domino i = (Domino) o;
     return Integer.compare(this.values[0], i.values[0]);
   }
