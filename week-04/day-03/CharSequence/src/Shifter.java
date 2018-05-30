@@ -15,8 +15,11 @@ public class Shifter implements CharSequence{
 
   @Override
   public char charAt(int index) {
-    // why this is not an infinite recursive call?
-    return this.input.charAt(index + shiftSteps);
+    if (index + shiftSteps > this.input.length()){
+      return this.input.charAt((index + shiftSteps) % this.input.length());
+    } else {
+      return this.input.charAt(index + shiftSteps);
+    }
   }
 
   @Override

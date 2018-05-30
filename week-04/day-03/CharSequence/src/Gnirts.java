@@ -13,7 +13,6 @@ public class Gnirts implements CharSequence {
 
   @Override
   public char charAt(int index) {
-    // why this is not an infinite recursive call?
     return this.input.charAt((this.input.length() - 1) - index);
   }
 
