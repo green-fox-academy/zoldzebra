@@ -36,5 +36,4 @@ public class Sponsor {
     this.hiredStudents++;
   }
 
-
 }
