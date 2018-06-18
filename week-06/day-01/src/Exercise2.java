@@ -10,7 +10,7 @@ public class Exercise2 {
 
   }
 
-  public static double getAverageOfOdds(ArrayList<Integer> numbers){
+  public static double getAverageOfOdds(ArrayList<Integer> numbers) {
     return numbers.stream()
             .filter(number -> number % 2 == 1 || number % 2  == -1 )
             .mapToInt(number -> number)
