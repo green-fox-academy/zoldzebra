@@ -23,8 +23,12 @@ form {
 }
 
 input {
+  box-sizing: border-box; /* sizing properties apply to all parts total!!*/
   width: 100%;
-  font-size: 1em;
+  font-size: 0.7em;
+  border-radius: 3px;
+  border:1px solid #ccc;
+  padding: 5%;
 }
 
 input:focus {
@@ -73,5 +77,5 @@ a:link {
   font-size: 0.3em;
   float:right;
   color: #666666;
-  padding: 0;
+  padding: 1% 0;
 }
