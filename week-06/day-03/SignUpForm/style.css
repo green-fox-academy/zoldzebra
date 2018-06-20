@@ -1,0 +1,62 @@
+body {
+  font-family: 'Quicksand', sans-serif;
+  background-color: #DCDCDC;
+}
+
+form {
+    float:left;
+    margin-left: 5%;
+    margin-right: 5%;
+
+    width:90%;
+    border:0px;
+    padding:30px 50px ;
+    border-radius: 3px;
+    background-color: white;
+    box-shadow: 0px 2px 3px 2px #8E8E8E;
+    font-weight: bold;
+    font-size: 1em;
+    color: ##272727;
+}
+
+input {
+  box-sizing: border-box; /* sizing properties apply to all parts total!!*/
+  width: 30%;
+  font-size: 0.7em;
+  padding: 3px;
+  margin: 5px 0px;
+
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: #DCDCDC;
+}
+
+input:focus {
+  border-color: #00A887;
+}
+
+.inputfield {
+  display:block;
+
+}
+
+.password {
+  -webkit-text-security: disc;
+}
+
+.signMeUp_button {
+  font-size: 0.6em;
+  font-weight: bold;
+  padding: 10px 30px;
+  background-color: #00A887;
+  color: white;
+  border: 0px;
+  border-radius: 3px;
+  width: 30%;
+  float:left;
+  text-align: center;
+}
+
+.login_button {
+  display:block;
+}
