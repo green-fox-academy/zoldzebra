@@ -1,0 +1,58 @@
+body {
+  background-color: #f2f2f2;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16pt;
+  padding: 3% 5%;
+}
+
+form {
+    float:left;
+    text-align:center;
+    width:30%;
+    border:0px;
+    padding:30px 50px ;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 1em;
+    color: #666666;
+
+}
+
+.login_box {
+    background-color: ffffff;
+}
+
+input {
+  width: 100%;
+}
+
+p {
+  float: left;
+}
+
+.fieldnames {
+  font-size: 0.4em;
+  margin: 0;
+}
+
+
+.submitButton {
+  font-size: 0.6em;
+  font-weight: bold;
+  padding: 10px 30px;
+  background-color: #333333;
+  color: white;
+  border: 0px;
+  border-radius: 22px;
+  width: 100px;
+  float:left;
+}
+
+.pwReminder {
+  font-size: 0.3em;
+  float: right;
+}
+
+#username, #password0:active{
+  border-color: green;
+}
