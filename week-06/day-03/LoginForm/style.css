@@ -7,8 +7,8 @@ body {
 
 form {
     float:left;
-    text-align:center;
-    width:30%;
+    font-weight: bold;
+    width:50%;
     border:0px;
     padding:30px 50px ;
     border-radius: 5px;
@@ -24,21 +24,41 @@ form {
 
 input {
   width: 100%;
+  font-size: 1em;
+}
+
+input:focus {
+  border-color: #99cc00;
+}
+
+input.password {
+  -webkit-text-security: disc;
+}
+
+h1 {
+  font-size: 1em;
+  text-align: left;
+  padding: 5% 0;
 }
 
 p {
-  float: left;
+  text-align: left;
+}
+
+a:link {
+  text-decoration: none;
+  color: #666666;
 }
 
 .fieldnames {
   font-size: 0.4em;
   margin: 0;
+  padding: 5% 0 5% 0;
 }
 
 
 .submitButton {
   font-size: 0.6em;
-  font-weight: bold;
   padding: 10px 30px;
   background-color: #333333;
   color: white;
@@ -46,13 +66,12 @@ p {
   border-radius: 22px;
   width: 100px;
   float:left;
+  text-align: center;
 }
 
 .pwReminder {
   font-size: 0.3em;
-  float: right;
-}
-
-#username, #password0:active{
-  border-color: green;
+  float:right;
+  color: #666666;
+  padding: 0;
 }
