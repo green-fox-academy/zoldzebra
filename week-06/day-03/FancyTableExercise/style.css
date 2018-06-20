@@ -1,0 +1,56 @@
+body {
+  background-color: blue;
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+  color: grey;
+  padding: 2%;
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-spacing: 0px;
+  background-color: white;
+  border-collapse: collapse;
+  border-style: hidden;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+table td {
+  border: 1px solid grey;
+}
+
+table th {
+  border-bottom: 3px solid grey;
+  font-size: 1,5em;
+}
+
+td, th {
+  border: 1px solid grey;
+  padding: 1rem;
+  text-align: left;
+  color: #3e3e3e;
+}
+
+th {
+  background-color: black;
+  color: gray;
+}
+
+tbody tr:nth-child(odd) {
+  background: #eee;
+}
+
+.header {
+  border-bottom: 4px;
+}
+.Month {
+  width: 40%;
+}
+.Sales {
+  width: 60%;
+}
+.dollars::before {
+  content: "$ ";
+}
