@@ -2,11 +2,14 @@ body {
   background-color: #f2f2f2;
   font-family: 'Roboto', sans-serif;
   font-size: 16pt;
-  padding: 3% 5%;
+  padding: 3% ;
+
 }
 
 form {
     float:left;
+    margin-left: 20%;
+    margin-right: 20%;
     font-weight: bold;
     width:50%;
     border:0px;
@@ -28,7 +31,8 @@ input {
   font-size: 0.7em;
   border-radius: 3px;
   border:1px solid #ccc;
-  padding: 5%;
+  padding: 15px;
+  margin: 5px 0px;
 }
 
 input:focus {
@@ -57,12 +61,13 @@ a:link {
 .fieldnames {
   font-size: 0.4em;
   margin: 0;
-  padding: 5% 0 5% 0;
+  padding: 15px 0 15px 0;
 }
 
 
 .submitButton {
   font-size: 0.6em;
+  font-weight: bold;
   padding: 10px 30px;
   background-color: #333333;
   color: white;
@@ -74,7 +79,7 @@ a:link {
 }
 
 .pwReminder {
-  font-size: 0.3em;
+  font-size: 0.4em;
   float:right;
   color: #666666;
   padding: 1% 0;
