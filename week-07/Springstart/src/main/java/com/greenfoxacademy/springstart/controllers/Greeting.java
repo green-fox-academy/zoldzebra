@@ -20,7 +20,7 @@ public class Greeting {
 
   public Greeting (String content) {
     this.id = idCounter.incrementAndGet();
-    this.content = content;    
+    this.content = content;
   }
 
   public long getId() {
