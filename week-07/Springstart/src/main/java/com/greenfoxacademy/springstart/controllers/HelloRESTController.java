@@ -12,6 +12,7 @@ public class HelloRESTController {
   @GetMapping("/greeting")
   public Greeting greeting (@RequestParam String name) {
     Greeting greeting = new Greeting(name);
+
     return greeting;
   }
 
