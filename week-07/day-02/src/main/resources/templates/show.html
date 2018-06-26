@@ -10,7 +10,9 @@
         <p th:text="'Name: ' + *{name}"></p>
         <p th:text="'Balance: ' + ${#numbers.formatDecimal({simbaAccount.balance} , 0, 'NONE', 2, 'POINT')} + ' ' + *{currency}"></p>
         <p th:text="'Animaltype: ' + *{animalType}"></p>
-
+    </div>
+    <div>
+        <p th:utext="${text}"></p>
     </div>
 
 
