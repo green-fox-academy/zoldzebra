@@ -6,6 +6,7 @@ public class BankAccount {
   private double balance;
   private String animalType;
   private String currency;
+  private boolean king;
 
   public BankAccount(){
 
@@ -16,6 +17,7 @@ public class BankAccount {
     this.balance = balance;
     this.animalType = animalType;
     this.currency = "zebra";
+    this.king = false;
     System.out.println("New bankaccount created: " + this.name + ", " + this.balance + ", " + this.animalType);
   }
 
@@ -49,5 +51,13 @@ public class BankAccount {
 
   public void setCurrency(String currency) {
     this.currency = currency;
+  }
+
+  public boolean isKing() {
+    return king;
+  }
+
+  public void setKing(boolean king) {
+    this.king = king;
   }
 }

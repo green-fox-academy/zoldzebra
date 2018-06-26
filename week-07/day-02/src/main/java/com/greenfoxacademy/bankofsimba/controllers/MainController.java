@@ -7,8 +7,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class MainController {
+
+  List<BankAccount> accountList;
+
+  MainController() {
+    this.accountList = new ArrayList<>();
+    accountList.add(new BankAccount("Timon", 1500, "meerkat"));
+    accountList.add(new BankAccount("Pumba", 500, "warthog"));
+    accountList.add(new BankAccount("Mufasa", 1500, "lion"));
+    accountList.add(new BankAccount("Scar", 3, "lion"));
+  }
 
   @GetMapping("/show")
   public String addBankAccount(Model model) {
@@ -16,6 +29,13 @@ public class MainController {
     model.addAttribute("text", "This is an <em>HTML</em> text. <b>Enjoy yourself!</b>");
     return "show";
   }
+
+  @GetMapping("/accountlist")
+  public String accountList(Model model) {
+    model.addAttribute("accountList", this.accountList);
+    return "accountlist";
+  }
+
 
 
 }

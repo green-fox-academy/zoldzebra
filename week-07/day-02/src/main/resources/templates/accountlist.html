@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Bank Account List</title>
+</head>
+<body>
+    <h3>Bank of Simba main account list</h3>
+
+    <div>
+        <table>
+            <thead>
+                <tr class="header">
+                    <th class="Name">Name</th>
+                    <th class="Balance">Balance</th>
+                    <th class="Animal type">Animal type</th>
+                </tr>
+            </thead>
+            <tbody th:each="account : ${accountList}" th:object="${account}">
+                <tr>
+                    <td th:text="*{name}"></td>
+                    <td th:text="${#numbers.formatDecimal({account.balance} , 0, 'NONE', 2, 'POINT')} + ' ' + *{currency}"></td>
+                    <td th:text="*{animalType}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</body>
+</html>
