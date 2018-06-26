@@ -3,10 +3,13 @@ package com.greenfoxacademy.bankofsimba.controllers;
 import com.greenfoxacademy.bankofsimba.models.BankAccount;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @Controller
 public class MainController {
@@ -35,4 +38,28 @@ public class MainController {
     model.addAttribute("accountList", this.accountList);
     return "accountlist";
   }
+
+  /*
+  @GetMapping("/accountlist")
+  public String addMoney(Integer index) {
+    accountList.get(index).setBalance(accountList.get(index).getBalance() + 10);
+    return "redirect: /";
+  }
+  */
+
+  /*
+  @RequestMapping(value="/accountlist", method = POST)
+  @ResponseBody
+  public String addMoney(@RequestParam("accountID") int index){
+    accountList.get(index).setBalance(accountList.get(index).getBalance() + 10);
+    System.out.println(accountList.get(index).getBalance());
+    return "redirect: /accountlist";
+  }
+  */
+  @PostMapping (value="/accountlist")
+  public String addMoney(@RequestParam("accountID") int index){
+    accountList.get(index).setBalance(accountList.get(index).getBalance() + 10);
+    return "redirect:/accountlist";
+  }
+
 }

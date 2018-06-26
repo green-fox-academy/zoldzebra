@@ -20,6 +20,7 @@
                     <th class="Animal_type">Animal type</th>
                     <th class="King_or_not?">King or not?</th>
                     <th class="Good_or_not?">Good or not?</th>
+                    <th class="Add_money">Add money</th>
                 </tr>
             </thead>
             <tbody th:each="account, iStat : ${accountList}" th:object="${account}">
@@ -32,6 +33,11 @@
                     <td th:unless="${account.king == true}">No</td>
                     <td th:if="${account.good == true}">Good One</td>
                     <td th:unless="${account.good == true}">Bad Guy</td>
+                    <td>
+                        <form action="#" th:action="@{/accountlist(accountID=${iStat.index})}" method="post">
+                            <input type="submit" value="+zebra"/>
+                        </form>
+                    </td>
                 </tr>
             </tbody>
         </table>
