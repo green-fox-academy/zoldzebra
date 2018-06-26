@@ -7,7 +7,6 @@
 </head>
 <body>
     <h3>Bank of Simba main account list</h3>
-
     <div>
         <table>
             <thead>
@@ -15,13 +14,15 @@
                     <th class="Name">Name</th>
                     <th class="Balance">Balance</th>
                     <th class="Animal type">Animal type</th>
+                    <th class="List index">List index</th>
                 </tr>
             </thead>
-            <tbody th:each="account : ${accountList}" th:object="${account}">
+            <tbody th:each="account, iStat : ${accountList}" th:object="${account}">
                 <tr>
                     <td th:text="*{name}"></td>
                     <td th:text="${#numbers.formatDecimal({account.balance} , 0, 'NONE', 2, 'POINT')} + ' ' + *{currency}"></td>
                     <td th:text="*{animalType}"></td>
+                    <td th:text="${iStat.index}"></td>
                 </tr>
             </tbody>
         </table>
