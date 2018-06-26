@@ -2,9 +2,10 @@ package com.greenfoxacademy.bankofsimba.models;
 
 public class BankAccount {
 
-  String name;
-  double balance;
-  String animalType;
+  private String name;
+  private double balance;
+  private String animalType;
+  private String currency;
 
   public BankAccount(){
 
@@ -14,6 +15,7 @@ public class BankAccount {
     this.name = name;
     this.balance = balance;
     this.animalType = animalType;
+    this.currency = "zebra";
     System.out.println("New bankaccount created: " + this.name + ", " + this.balance + ", " + this.animalType);
   }
 
@@ -39,5 +41,13 @@ public class BankAccount {
 
   public void setAnimalType(String animalType) {
     this.animalType = animalType;
+  }
+
+  public String getCurrency() {
+    return currency;
+  }
+
+  public void setCurrency(String currency) {
+    this.currency = currency;
   }
 }
