@@ -27,10 +27,8 @@
                     <td th:text="*{animalType}"></td>
                     <td th:if="${account.king == true}">Yes</td>
                     <td th:unless="${account.king == true}">No</td>
-                    <div th:switch="${account.good}">
-                        <td th:case="true">Good One</td>
-                        <td th:case="false">Bad Guy</td>
-                    </div>
+                    <td th:if="${account.good == true}">Good One</td>
+                    <td th:unless="${account.good == true}">Bad Guy</td>
                 </tr>
             </tbody>
         </table>
