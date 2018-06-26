@@ -11,21 +11,26 @@
         <table>
             <thead>
                 <tr class="header">
+                    <th class="List_index">List index</th>
                     <th class="Name">Name</th>
                     <th class="Balance">Balance</th>
                     <th class="Animal_type">Animal type</th>
                     <th class="King_or_not?">King or not?</th>
-                    <th class="List_index">List index</th>
+                    <th class="Good_or_not?">Good or not?</th>
                 </tr>
             </thead>
             <tbody th:each="account, iStat : ${accountList}" th:object="${account}">
                 <tr>
+                    <td th:text="${iStat.index}"></td>
                     <td th:text="*{name}"></td>
                     <td th:text="${#numbers.formatDecimal({account.balance} , 0, 'NONE', 2, 'POINT')} + ' ' + *{currency}"></td>
                     <td th:text="*{animalType}"></td>
                     <td th:if="${account.king == true}">Yes</td>
                     <td th:unless="${account.king == true}">No</td>
-                    <td th:text="${iStat.index}"></td>
+                    <div th:switch="${account.good}">
+                        <td th:case="true">Good One</td>
+                        <td th:case="false">Bad Guy</td>
+                    </div>
                 </tr>
             </tbody>
         </table>

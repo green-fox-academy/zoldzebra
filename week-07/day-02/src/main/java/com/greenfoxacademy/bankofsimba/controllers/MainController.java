@@ -22,6 +22,7 @@ public class MainController {
     accountList.add(new BankAccount("Mufasa", 1500, "lion"));
     accountList.get(2).setKing(true);
     accountList.add(new BankAccount("Scar", 3, "lion"));
+    accountList.get(3).setGood(false);
   }
 
   @GetMapping("/show")
