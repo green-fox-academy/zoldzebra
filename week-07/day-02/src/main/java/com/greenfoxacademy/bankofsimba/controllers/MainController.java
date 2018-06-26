@@ -58,7 +58,11 @@ public class MainController {
   */
   @PostMapping (value="/accountlist")
   public String addMoney(@RequestParam("accountID") int index){
-    accountList.get(index).setBalance(accountList.get(index).getBalance() + 10);
+    if (accountList.get(index).isKing()) {
+      accountList.get(index).setBalance(accountList.get(index).getBalance() + 100);
+    } else {
+      accountList.get(index).setBalance(accountList.get(index).getBalance() + 10);
+    }
     return "redirect:/accountlist";
   }
 
