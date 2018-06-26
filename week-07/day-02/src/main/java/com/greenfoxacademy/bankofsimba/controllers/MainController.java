@@ -20,6 +20,7 @@ public class MainController {
     accountList.add(new BankAccount("Timon", 1500, "meerkat"));
     accountList.add(new BankAccount("Pumba", 500, "warthog"));
     accountList.add(new BankAccount("Mufasa", 1500, "lion"));
+    accountList.get(2).setKing(true);
     accountList.add(new BankAccount("Scar", 3, "lion"));
   }
 

@@ -13,8 +13,9 @@
                 <tr class="header">
                     <th class="Name">Name</th>
                     <th class="Balance">Balance</th>
-                    <th class="Animal type">Animal type</th>
-                    <th class="List index">List index</th>
+                    <th class="Animal_type">Animal type</th>
+                    <th class="King_or_not?">King or not?</th>
+                    <th class="List_index">List index</th>
                 </tr>
             </thead>
             <tbody th:each="account, iStat : ${accountList}" th:object="${account}">
@@ -22,6 +23,8 @@
                     <td th:text="*{name}"></td>
                     <td th:text="${#numbers.formatDecimal({account.balance} , 0, 'NONE', 2, 'POINT')} + ' ' + *{currency}"></td>
                     <td th:text="*{animalType}"></td>
+                    <td th:if="${account.king == true}">Yes</td>
+                    <td th:unless="${account.king == true}">No</td>
                     <td th:text="${iStat.index}"></td>
                 </tr>
             </tbody>
