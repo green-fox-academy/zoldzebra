@@ -9,9 +9,7 @@ public class BankAccount {
   private boolean king;
   private boolean good;
 
-  public BankAccount(){
-
-  }
+  public BankAccount(){  }
 
   public BankAccount(String name, double balance, String animalType) {
     this.name = name;
