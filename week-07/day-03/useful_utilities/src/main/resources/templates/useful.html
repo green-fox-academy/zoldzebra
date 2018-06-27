@@ -5,10 +5,17 @@
     <meta charset="UTF-8"/>
     <title>Useful utilities</title>
 </head>
-<body>
+<br>
     <h3>Useful utilities</h3>
-    <a href="/useful/colored">Random colored page</a>
-    <a href="/useful/email?email=is@this.valid">Is this a valid email address?</a>
+    <a href="/useful/colored">Random colored page</a></br>
+    <a href="/useful/email?email=is@this.valid">Is this a valid email address?</a></br>
 
+    <form action="#" th:action="@{/useful/caesarcoder}">
+        <p>Text to encode/decode:</p>
+        <input type="text" name="textToCode" required/></br>
+        <p>Key (number, + for encode, - for decode)</p>
+        <input type="text" name="number" required/></br>
+        <input type="submit" value="Ave Caesar!"/>
+    </form>
 </body>
 </html>

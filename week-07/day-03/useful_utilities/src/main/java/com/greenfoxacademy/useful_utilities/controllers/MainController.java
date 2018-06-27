@@ -38,6 +38,15 @@ public class MainController {
     return "email";
   }
 
+  @GetMapping ("/useful/caesarcoder")
+  public String doCaesar(@RequestParam("textToCode") String text, @RequestParam("number") String number, Model model){
+    int codeNumber = Integer.valueOf(number);
+    String codedText = utilityService.caesar(text, codeNumber);
+    model.addAttribute("codedText", codedText);
+    return "caesarcoder";
+  }
+
+
 
 
 

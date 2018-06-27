@@ -57,7 +57,7 @@ public class MainController {
   }
   */
   @PostMapping (value="/accountlist")
-  public String addMoney(@RequestParam("accountID") int index){
+  public String addMoney(@RequestParam("accountID") int index) {
     if (accountList.get(index).isKing()) {
       accountList.get(index).setBalance(accountList.get(index).getBalance() + 100);
     } else {
