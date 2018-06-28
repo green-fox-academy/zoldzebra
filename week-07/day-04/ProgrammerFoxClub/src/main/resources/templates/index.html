@@ -17,7 +17,7 @@
         <img src="mokka.jpg" width="200"/>
     </div>
     <div th:object="${pet}">
-        <p th:text="*{name}"></p>
+        <p th:text="'This is ' + *{name} + '. Currently living on ' + *{food} + ' and ' + *{drink} + '. She knows tricks.'"></p>
     </div>
     <h1>Known tricks</h1>
     <div>
