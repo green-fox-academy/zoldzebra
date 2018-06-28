@@ -54,4 +54,5 @@ public class Pet {
   public void setPetTrickList(TrickList petTrickList) {
     this.petTrickList = petTrickList;
   }
+
 }

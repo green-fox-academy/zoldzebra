@@ -20,4 +20,5 @@ public class TrickList {
   public void setTrickList(List<Trick> trickList) {
     this.trickList = trickList;
   }
+
 }
