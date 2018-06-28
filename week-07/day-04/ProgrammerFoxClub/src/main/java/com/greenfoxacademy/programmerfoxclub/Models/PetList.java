@@ -1,25 +1,31 @@
 package com.greenfoxacademy.programmerfoxclub.Models;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PetList {
 
-  private List<Pet> petList;
+  private Map<String, Pet> petList;
 
   public PetList() {
-    this.petList = null;
+    this.petList = new HashMap<>();
+    System.out.println("Empty petList created");
   }
 
   public void addPet(Pet pet) {
-    this.petList.add(pet);
+    this.petList.put(pet.getName(), pet);
+    System.out.println(pet.getName() + " added to petList");
   }
 
-
-  public List<Pet> getPetList() {
+  public Map<String, Pet> getPetList() {
     return petList;
   }
 
-  public void setPetList(List<Pet> petList) {
+  public void setPetList(Map<String, Pet> petList) {
     this.petList = petList;
+  }
+
+  public Pet getPetFromList (String petName) {
+    return this.petList.get(petName);
   }
 }

@@ -15,6 +15,14 @@ public class Pet {
     this.drink = "yucky water";
   }
 
+  public Pet(String name) {
+    this.name = name;
+    this.petTrickList = new TrickList();
+    this.food = "nutella";
+    this.drink = "yucky water";
+    System.out.println(name + " is alive now!");
+  }
+
   public String getName() {
     return name;
   }

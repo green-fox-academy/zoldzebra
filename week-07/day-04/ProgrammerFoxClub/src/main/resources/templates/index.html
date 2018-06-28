@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>Main Page</title>
@@ -8,15 +9,15 @@
     <div>
         <ul>
             <li>
-                <a href="index.html" ul>Information</a>
+                <a href="/">Information</a>
             </li>
         </ul>
     </div>
     <div>
         <img src="mokka.jpg" width="200"/>
     </div>
-    <div>
-        <p>This is Mokka. Currently living on pizza and lemonade. She knows 2 tricks.</p>
+    <div th:object="${pet}">
+        <p th:text="*{name}"></p>
     </div>
     <h1>Known tricks</h1>
     <div>
