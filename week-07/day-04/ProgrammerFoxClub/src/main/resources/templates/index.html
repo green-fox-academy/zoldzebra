@@ -5,7 +5,7 @@
     <meta charset="UTF-8"/>
     <title>Main Page</title>
 </head>
-<body>
+<body th:object="${pet}">
     <div>
         <ul>
             <li>
@@ -16,15 +16,14 @@
     <div>
         <img src="mokka.jpg" width="200"/>
     </div>
-    <div th:object="${pet}">
+    <div>
         <p th:text="'This is ' + *{name} + '. Currently living on ' + *{food} + ' and ' + *{drink} +
         '. She knows ' + *{#lists.size(petTrickList)} + ' tricks.'"></p>
     </div>
     <h1>Known tricks</h1>
     <div>
         <ul>
-            <li>write HTML</li>
-            <li>code in Java</li>
+            <li th:each="trick: *{petTrickList.trickList}" th:text="${trick.getTrick()}"></li>
         </ul>
     </div>
 </body>
