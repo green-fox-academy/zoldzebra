@@ -10,7 +10,7 @@ public class TrickList {
   public TrickList() {
     Trick trick0 = new Trick();
     this.trickList = new ArrayList<>();
-    trickList.add(trick0);
+    //trickList.add(trick0);
   }
 
   public List<Trick> getTrickList() {
