@@ -7,7 +7,13 @@
 </head>
 <body>
     <h1>Welcome to Programmer Fox Club!</h1>
-    <p>Please provide a name for your pet!</p></br>
+    <p>Please provide a name for your pet!</p>
+    <p>The name should pass these rules:</p>
+    <ul>
+        <li>First letter is uppercase</li>
+        <li>All other letters are lowercase</li>
+        <li>Last character is numeric</li>
+    </ul>
     <form action="#" th:action="@{/}" method="get">
         <label for="petName">Name</label>
         <input type="text" id="petName" name="petName" required/>

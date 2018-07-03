@@ -11,4 +11,5 @@ public class Printer {
   System.out.println(LocalDateTime.now() + " MY PRINTER SAYS --- " + message);
   }
 
+
 }
