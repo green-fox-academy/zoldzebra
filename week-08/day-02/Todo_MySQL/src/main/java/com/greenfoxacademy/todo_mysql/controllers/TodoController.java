@@ -24,6 +24,11 @@ public class TodoController {
         return "todolist";
     }
 
+    @RequestMapping ("/test")
+    public String showTest() {
+      return "test";
+    }
+
 
 
 }

@@ -23,5 +23,7 @@ public class TodoMysqlApplication implements CommandLineRunner {
         todoRepo.save(todo0);
         Todo todo1 = new Todo("Not to go crazy because of java annotations");
         todoRepo.save(todo1);
+        Todo todo2 = new Todo("Add a new task");
+        todoRepo.save(todo2);
     }
 }
