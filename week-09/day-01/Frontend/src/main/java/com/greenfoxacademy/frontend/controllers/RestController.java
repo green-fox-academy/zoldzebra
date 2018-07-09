@@ -44,13 +44,30 @@ public class RestController {
 
   @PostMapping("/dountil/{what}")
   public Object doUntil(@PathVariable(value = "what") String what,
-                        @RequestBody Until until) {
-    return new DoUntil(what, until.getUntil());
+                        @RequestBody (required = false) Until until) {
+    if (until == null) {
+      return new Error("Please provide a number!");
+    } else {
+      return new DoUntil(what, until.getUntil());
+    }
   }
 
-  @ExceptionHandler({HttpMessageNotReadableException.class})
-  public Error doUntilError() {
-    return new Error("Please provide a number!");
+  // @ExceptionHandler({HttpMessageNotReadableException.class})
+  // public Error doUntilError() {
+  //   return new Error("Please provide a number!");
+  // }
+
+  @PostMapping("/arrays")
+  public Object arrayHandler(@RequestBody (required = false) ArrayHandler arrayHandler) {
+    if ((arrayHandler == null) || (arrayHandler.getWhat() == null) || (arrayHandler.getNumbers() == null)) {
+      return new Error("Please provide what to do with the numbers!");
+    } else if (arrayHandler.getWhat().equals("sum") || arrayHandler.getWhat().equals("multiply")) {
+      return new ArrayResult(arrayHandler.getWhat(), arrayHandler.getNumbers());
+    } else if (arrayHandler.getWhat().equals("double")) {
+      return new ArrayResultDouble(arrayHandler.getNumbers());
+    }
+    return new Error("The thing that should not be happened.");
   }
+
 
 }
