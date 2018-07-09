@@ -2,6 +2,8 @@ package com.greenfoxacademy.frontend.controllers;
 
 import com.greenfoxacademy.frontend.models.*;
 import com.greenfoxacademy.frontend.models.Error;
+import com.greenfoxacademy.frontend.repositories.LogRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,8 +12,12 @@ import javax.websocket.server.PathParam;
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
 
+  @Autowired
+  LogRepo logRepo;
+
   @GetMapping("/doubling")
   public Object doubling(@RequestParam(value = "input", required = false) Integer input) {
+    logRepo.save(new Log("/doubling", "FIX_INPUT_FOR_TEST"));
     if (input != null) {
       Doubling doubling = new Doubling(input);
       return doubling;
@@ -24,6 +30,7 @@ public class RestController {
   @GetMapping("/greeter")
   public Object greeter(@RequestParam(value = "name", required = false) String name,
                         @RequestParam(value = "title", required = false) String title) {
+    logRepo.save(new Log("/greeter", "FIX_INPUT_FOR_TEST"));
     if (name == null) {
       return new Error("Please provide a name!");
     } else if (title == null) {
@@ -35,6 +42,7 @@ public class RestController {
 
   @GetMapping("/appenda/{appendable}")
   public Object appenda(@PathParam(value = "appendable") String input) {
+    logRepo.save(new Log("/apppenda", "FIX_INPUT_FOR_TEST"));
     if (input == null) {
       return null;
     } else {
@@ -45,6 +53,7 @@ public class RestController {
   @PostMapping("/dountil/{what}")
   public Object doUntil(@PathVariable(value = "what") String what,
                         @RequestBody (required = false) Until until) {
+    logRepo.save(new Log("/dountil", "FIX_INPUT_FOR_TEST"));
     if (until == null) {
       return new Error("Please provide a number!");
     } else {
@@ -59,6 +68,7 @@ public class RestController {
 
   @PostMapping("/arrays")
   public Object arrayHandler(@RequestBody (required = false) ArrayHandler arrayHandler) {
+    logRepo.save(new Log("/arrays", "FIX_INPUT_FOR_TEST"));
     if ((arrayHandler == null) || (arrayHandler.getWhat() == null) || (arrayHandler.getNumbers() == null)) {
       return new Error("Please provide what to do with the numbers!");
     } else if (arrayHandler.getWhat().equals("sum") || arrayHandler.getWhat().equals("multiply")) {
@@ -66,8 +76,6 @@ public class RestController {
     } else if (arrayHandler.getWhat().equals("double")) {
       return new ArrayResultDouble(arrayHandler.getNumbers());
     }
-    return new Error("The thing that should not be happened.");
+    return new Error("The thing that should not be happened. We are sorry.");
   }
-
-
 }
