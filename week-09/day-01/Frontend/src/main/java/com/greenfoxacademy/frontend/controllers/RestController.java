@@ -1,11 +1,9 @@
 package com.greenfoxacademy.frontend.controllers;
 
-import com.greenfoxacademy.frontend.models.Appenda;
-import com.greenfoxacademy.frontend.models.Doubling;
+import com.greenfoxacademy.frontend.models.*;
 import com.greenfoxacademy.frontend.models.Error;
-import com.greenfoxacademy.frontend.models.Greeting;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
 
@@ -42,6 +40,17 @@ public class RestController {
     } else {
       return new Appenda(input);
     }
+  }
+
+  @PostMapping("/dountil/{what}")
+  public Object doUntil(@PathVariable(value = "what") String what,
+                        @RequestBody Until until) {
+    return new DoUntil(what, until.getUntil());
+  }
+
+  @ExceptionHandler({HttpMessageNotReadableException.class})
+  public Error doUntilError() {
+    return new Error("Please provide a number!");
   }
 
 }

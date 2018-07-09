@@ -4,6 +4,8 @@ public class Error {
 
   String error;
 
+  public Error(){}
+
   public Error (String message) {
     this.error = message;
   }
