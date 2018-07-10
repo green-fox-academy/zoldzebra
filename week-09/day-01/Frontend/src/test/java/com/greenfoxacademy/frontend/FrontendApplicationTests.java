@@ -44,11 +44,23 @@ public class FrontendApplicationTests {
   public void doubling_without_Data() throws Exception {
     when(logRepo.save(new Log("/doubling", "FIX_INPUT_FOR_TEST"))).thenReturn(null);
     mockMvc.perform(get("/doubling")
-            //.contentType(MediaType.APPLICATION_JSON)
-            .content("input="))
+            .contentType(MediaType.APPLICATION_JSON)
+            .param("input", "5"))
             .andExpect(status().isOk())
             .andExpect(content().contentType(contentType))
             .andExpect(jsonPath("$.error", is("Please provide an input!")));
+  }
+
+  @Test
+  public void doubling_with_Input() throws Exception {
+    when(logRepo.save(new Log("/doubling", "FIX_INPUT_FOR_TEST"))).thenReturn(null);
+    mockMvc.perform(get("/doubling")
+            //.contentType(MediaType.APPLICATION_JSON)
+            .param("input", "5"))
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+            .andExpect(jsonPath("$.received", is(5)))
+            .andExpect(jsonPath("$.result", is(10)));
   }
 
 }
