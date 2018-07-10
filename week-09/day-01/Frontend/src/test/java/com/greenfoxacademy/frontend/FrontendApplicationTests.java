@@ -144,4 +144,70 @@ public class FrontendApplicationTests {
             .andExpect(jsonPath("$.result", is(720)));
   }
 
+  @Test
+  public void arrayHandler_noWhat() throws Exception {
+    when(logRepo.save(new Log("/arrays", "FIX_INPUT_FOR_TEST"))).thenReturn(null);
+    mockMvc.perform(post("/arrays")
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .content("{\"numbers\": [1,2,3]}"))
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+            .andExpect(jsonPath("$.error", is("Please provide what to do with the numbers!")));
+  }
+
+  @Test
+  public void arrayHandler_noNumbers() throws Exception {
+    when(logRepo.save(new Log("/arrays", "FIX_INPUT_FOR_TEST"))).thenReturn(null);
+    mockMvc.perform(post("/arrays")
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .content("{\"what\": \"sum\"}"))
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+            .andExpect(jsonPath("$.error", is("Please provide what to do with the numbers!")));
+  }
+
+  @Test
+  public void arrayHandler_sum() throws Exception {
+    when(logRepo.save(new Log("/arrays", "FIX_INPUT_FOR_TEST"))).thenReturn(null);
+    mockMvc.perform(post("/arrays")
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .content("{\"what\": \"sum\",\"numbers\": [1,2,3]}"))
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+            .andExpect(jsonPath("$.result", is(6)));
+  }
+
+  @Test
+  public void arrayHandler_multiply() throws Exception {
+    when(logRepo.save(new Log("/arrays", "FIX_INPUT_FOR_TEST"))).thenReturn(null);
+    mockMvc.perform(post("/arrays")
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .content("{\"what\": \"multiply\",\"numbers\": [1,2,3,4]}"))
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+            .andExpect(jsonPath("$.result", is(24)));
+  }
+
+  @Test
+  public void arrayHandler_double() throws Exception {
+    when(logRepo.save(new Log("/arrays", "FIX_INPUT_FOR_TEST"))).thenReturn(null);
+    mockMvc.perform(post("/arrays")
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .content("{\"what\": \"double\",\"numbers\": [1,2,3,4]}"))
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+            .andExpect(jsonPath("$.result[0]", is(2)))
+            .andExpect(jsonPath("$.result[1]", is(4)))
+            .andExpect(jsonPath("$.result[2]", is(6)))
+            .andExpect(jsonPath("$.result[3]", is(8)));
+  }
+
+
+
+
 }
