@@ -100,4 +100,48 @@ public class FrontendApplicationTests {
             .andExpect(status().is4xxClientError());
   }
 
+  @Test
+  public void doUntil_without_what() throws Exception {
+    when(logRepo.save(new Log("/appenda", "FIX_INPUT_FOR_TEST"))).thenReturn(null);
+    mockMvc.perform(post("/dountil")
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .content("{\"until\": \"15\"}"))
+            .andDo(print())
+            .andExpect(status().is4xxClientError());
+  }
+
+  @Test
+  public void doUntil_without_until() throws Exception {
+    when(logRepo.save(new Log("/appenda", "FIX_INPUT_FOR_TEST"))).thenReturn(null);
+    mockMvc.perform(post("/dountil/{what}", "sum"))
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+            .andExpect(jsonPath("$.error", is("Please provide a number!")));
+  }
+
+  @Test
+  public void doUntil_sum() throws Exception {
+    when(logRepo.save(new Log("/appenda", "FIX_INPUT_FOR_TEST"))).thenReturn(null);
+    mockMvc.perform(post("/dountil/{what}", "sum")
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .content("{\"until\": \"6\"}"))
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+            .andExpect(jsonPath("$.result", is(21)));
+  }
+
+  @Test
+  public void doUntil_factor() throws Exception {
+    when(logRepo.save(new Log("/appenda", "FIX_INPUT_FOR_TEST"))).thenReturn(null);
+    mockMvc.perform(post("/dountil/{what}", "factor")
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .content("{\"until\": \"6\"}"))
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+            .andExpect(jsonPath("$.result", is(720)));
+  }
+
 }
