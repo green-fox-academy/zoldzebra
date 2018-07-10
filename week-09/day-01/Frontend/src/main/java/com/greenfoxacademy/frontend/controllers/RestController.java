@@ -12,8 +12,13 @@ import javax.websocket.server.PathParam;
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
 
-  @Autowired
+  // @Autowired
   LogRepo logRepo;
+
+  @Autowired
+  public RestController(LogRepo logRepo) {
+    this.logRepo = logRepo;
+  }
 
   @GetMapping("/doubling")
   public Object doubling(@RequestParam(value = "input", required = false) Integer input) {
