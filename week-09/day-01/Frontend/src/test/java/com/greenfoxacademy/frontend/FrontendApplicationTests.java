@@ -63,4 +63,27 @@ public class FrontendApplicationTests {
             .andExpect(jsonPath("$.result", is(10)));
   }
 
+  @Test
+  public void greeter_without_nameInput() throws Exception {
+    when(logRepo.save(new Log("/greeter", "FIX_INPUT_FOR_TEST"))).thenReturn(null);
+    mockMvc.perform(get("/greeter")
+            //.contentType(MediaType.APPLICATION_JSON)
+            .param("title", "student"))
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+            .andExpect(jsonPath("$.error", is("Please provide a name!")));
+  }
+
+  @Test
+  public void greeter_with_properInput() throws Exception {
+    when(logRepo.save(new Log("/greeter", "FIX_INPUT_FOR_TEST"))).thenReturn(null);
+    mockMvc.perform(get("/greeter")
+            //.contentType(MediaType.APPLICATION_JSON)
+            .param("name", "Petya")
+            .param("title", "student"))
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+            .andExpect(jsonPath("$.welcome_message", is("Oh, hi there Petya, my dear student!")));
+  }
+
 }
