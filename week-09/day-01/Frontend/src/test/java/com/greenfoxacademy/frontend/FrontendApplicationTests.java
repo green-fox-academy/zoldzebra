@@ -22,6 +22,7 @@ import java.nio.charset.Charset;
 import static org.hamcrest.core.Is.is;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 
@@ -43,9 +44,7 @@ public class FrontendApplicationTests {
   @Test
   public void doubling_without_Data() throws Exception {
     when(logRepo.save(new Log("/doubling", "FIX_INPUT_FOR_TEST"))).thenReturn(null);
-    mockMvc.perform(get("/doubling")
-            .contentType(MediaType.APPLICATION_JSON)
-            .param("input", "5"))
+    mockMvc.perform(get("/doubling"))
             .andExpect(status().isOk())
             .andExpect(content().contentType(contentType))
             .andExpect(jsonPath("$.error", is("Please provide an input!")));
@@ -55,7 +54,6 @@ public class FrontendApplicationTests {
   public void doubling_with_Input() throws Exception {
     when(logRepo.save(new Log("/doubling", "FIX_INPUT_FOR_TEST"))).thenReturn(null);
     mockMvc.perform(get("/doubling")
-            //.contentType(MediaType.APPLICATION_JSON)
             .param("input", "5"))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
@@ -67,7 +65,6 @@ public class FrontendApplicationTests {
   public void greeter_without_nameInput() throws Exception {
     when(logRepo.save(new Log("/greeter", "FIX_INPUT_FOR_TEST"))).thenReturn(null);
     mockMvc.perform(get("/greeter")
-            //.contentType(MediaType.APPLICATION_JSON)
             .param("title", "student"))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
@@ -78,12 +75,29 @@ public class FrontendApplicationTests {
   public void greeter_with_properInput() throws Exception {
     when(logRepo.save(new Log("/greeter", "FIX_INPUT_FOR_TEST"))).thenReturn(null);
     mockMvc.perform(get("/greeter")
-            //.contentType(MediaType.APPLICATION_JSON)
             .param("name", "Petya")
             .param("title", "student"))
+            .andDo(print())
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
             .andExpect(jsonPath("$.welcome_message", is("Oh, hi there Petya, my dear student!")));
+  }
+
+  @Test
+  public void appenda_withAppendable() throws Exception {
+    when(logRepo.save(new Log("/appenda", "FIX_INPUT_FOR_TEST"))).thenReturn(null);
+    mockMvc.perform(get("/appenda/{appendable}", "kuty"))
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+            .andExpect(jsonPath("$.appended", is("kutya")));
+  }
+
+  @Test
+  public void appenda_withoutAppendable() throws Exception {
+    when(logRepo.save(new Log("/appenda", "FIX_INPUT_FOR_TEST"))).thenReturn(null);
+    mockMvc.perform(get("/appenda"))
+            .andExpect(status().is4xxClientError());
   }
 
 }

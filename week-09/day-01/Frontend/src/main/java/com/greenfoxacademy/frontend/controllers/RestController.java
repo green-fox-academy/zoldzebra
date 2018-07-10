@@ -46,13 +46,9 @@ public class RestController {
   }
 
   @GetMapping("/appenda/{appendable}")
-  public Object appenda(@PathParam(value = "appendable") String input) {
+  public Object appenda(@PathVariable(value = "appendable") String input) {
     logRepo.save(new Log("/apppenda", "FIX_INPUT_FOR_TEST"));
-    if (input == null) {
-      return null;
-    } else {
-      return new Appenda(input);
-    }
+    return new Appenda(input);
   }
 
   @PostMapping("/dountil/{what}")
